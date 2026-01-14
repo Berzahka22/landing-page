@@ -98,7 +98,7 @@
             <div class="grid grid-cols-1 sm:grid-cols-2 gap-4 md:gap-6 animate-fade-in-right h-full">
               <!-- Training Card -->
               <div class="animate-float backdrop-blur-xl rounded-2xl p-6 hover:border-orange-500 hover:scale-105 md:hover:scale-110 transition-all duration-300 h-full flex flex-col justify-end
-                bg-[url(@/src/assets/img/hero-training-img.png)] bg-cover bg-no-repeat overflow-hidden min-h-[200px]">
+                bg-[url(./assets/img/hero-training-img.png)] bg-cover bg-no-repeat overflow-hidden min-h-[200px]">
                 <div class="ml-2">
                   <p class="text-lg md:text-[19px] font-semibold text-slate-200">Training</p>
                   <p class="text-sm md:text-[15px] font-normal text-orange-400">Text subtitle</p>
@@ -107,7 +107,7 @@
   
               <!-- Career Card -->
               <div class="animate-float bg-white backdrop-blur-xl border border-slate-300 rounded-2xl p-6 hover:border-orange-500 hover:scale-105 md:hover:scale-110 transition-all duration-300 h-full flex flex-col justify-end
-                bg-[url(@/assets/img/hero-career-img.png)] bg-cover bg-no-repeat overflow-hidden min-h-[200px]">
+                bg-[url(./assets/img/hero-career-img.png)] bg-cover bg-no-repeat overflow-hidden min-h-[200px]">
                 <div class="">
                   <p class="text-lg md:text-[19px] font-semibold text-slate-900">Career</p>
                   <p class="text-sm md:text-[15px] font-normal text-orange-500">Text subtitle</p>
@@ -143,7 +143,7 @@
               </div>
     
               <!-- Dashboard Mockup -->
-              <div class="animate-fade-in-right h-[30vh] md:h-[45vh] hover:h-[35vh] md:hover:h-[50vh] w-full bg-[url(@/assets/img/admin-dashboard-panel-1.png)] bg-cover bg-no-repeat overflow-hidden hover:scale-105 md:hover:scale-110 transition-all duration-300 border-2 border-transparent rounded-2xl">
+              <div class="animate-fade-in-right h-[30vh] md:h-[45vh] hover:h-[35vh] md:hover:h-[50vh] w-full bg-[url(./assets/img/admin-dashboard-panel-1.png)] bg-cover bg-no-repeat overflow-hidden hover:scale-105 md:hover:scale-110 transition-all duration-300 border-2 border-transparent rounded-2xl">
               </div>
             </div>
     
@@ -177,7 +177,7 @@
             <!-- Mockups Grid -->
             <div class="animate-fade-in-left animate-slow-bounce h-full w-auto">
               <div class="h-[300px] md:h-full w-full backdrop-blur-xl border border-slate-700/50 rounded-2xl overflow-hidden p-4 md:p-8 hover:scale-105 hover:border-orange-500 transition-all duration-500
-                bg-[url(@/assets/img/4927380_2585277-1.png)] bg-center bg-contain bg-no-repeat">
+                bg-[url(./assets/img/4927380_2585277-1.png)] bg-center bg-contain bg-no-repeat">
               </div> 
             </div>
   
