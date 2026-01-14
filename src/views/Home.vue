@@ -98,7 +98,7 @@
             <div class="grid grid-cols-1 sm:grid-cols-2 gap-4 md:gap-6 animate-fade-in-right h-full">
               <!-- Training Card -->
               <div class="animate-float backdrop-blur-xl rounded-2xl p-6 hover:border-orange-500 hover:scale-105 md:hover:scale-110 transition-all duration-300 h-full flex flex-col justify-end
-                bg-[url(@/assets/img/hero-training-img.png)] bg-cover bg-no-repeat overflow-hidden min-h-[200px]">
+                bg-[url(@/src/assets/img/hero-training-img.png)] bg-cover bg-no-repeat overflow-hidden min-h-[200px]">
                 <div class="ml-2">
                   <p class="text-lg md:text-[19px] font-semibold text-slate-200">Training</p>
                   <p class="text-sm md:text-[15px] font-normal text-orange-400">Text subtitle</p>

@@ -19,7 +19,16 @@ export default {
           800: '#1e40af',
           900: '#1e3a8a',
         },
-        orange: "#FF551C"
+        orange: {
+          50: "#FD7B2E",
+          100: "#FD7B2E",
+          200: "#FD7B2E",
+          300: "#FD7B2E",
+          400: "#FD7B2E",
+          500: "#FD7B2E",
+          600: "#FD7B2E",
+          700: "#FD7B2E"
+        }
       },
       animation: {
         'fade-in': 'fadeIn 0.5s ease-in-out',
