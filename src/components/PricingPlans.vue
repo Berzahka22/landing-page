@@ -26,11 +26,19 @@
                             ]"></div>
 
                         <div class="relative p-4 sm:p-6 lg:p-8 h-full flex flex-col">
+                            <!-- Titre avec fond de la couleur du bouton -->
                             <div class="mb-4 sm:mb-6">
-                                <h3 v-if="index === 0"
-                                    class="text-white text-xs sm:text-sm font-semibold uppercase tracking-widest mb-2 sm:mb-4">
-                                    Plan
-                                </h3>
+                                <!-- Fond coloré derrière le titre -->
+                                <div class="inline-flex items-center px-3 py-1 rounded-full mb-3 sm:mb-4" :class="[
+                                    index === 0 
+                                        ? 'bg-gradient-to-r from-blue-600 to-blue-700' 
+                                        : 'bg-gradient-to-r from-[#FF551C] to-[#FF6B39]'
+                                ]">
+                                    <h3 class="text-white text-xs sm:text-sm font-semibold uppercase tracking-widest">
+                                        {{ index === 0 ? 'Plan' : 'Offer' }}
+                                    </h3>
+                                </div>
+                                
                                 <h2 :class="[
                                     'text-xl sm:text-2xl lg:text-3xl xl:text-4xl font-bold mb-2 sm:mb-3 transition-colors duration-300 text-white'
                                 ]">
@@ -42,7 +50,19 @@
                             </div>
 
                             <div class="mb-4 sm:mb-5">
-                                <p class="text-gray-400 text-xs sm:text-sm mb-1 sm:mb-2">{{ plan.discount }}</p>
+                                <!-- Prix avec fond coloré -->
+                                <div class="inline-flex items-center px-3 py-1 rounded-full mb-2 sm:mb-3" :class="[
+                                    index === 0 
+                                        ? 'bg-gradient-to-r from-blue-600/20 to-blue-700/20 border border-blue-500/30' 
+                                        : 'bg-gradient-to-r from-[#FF551C]/20 to-[#FF6B39]/20 border border-[#FF551C]/30'
+                                ]">
+                                    <p class="text-xs sm:text-sm font-medium" :class="[
+                                        index === 0 ? 'text-blue-300' : 'text-[#FF6B39]'
+                                    ]">
+                                        {{ plan.discount }}
+                                    </p>
+                                </div>
+                                
                                 <div class="flex items-baseline gap-1">
                                     <span class="text-2xl sm:text-3xl lg:text-[36px] font-semibold text-white">{{ plan.price }}</span>
                                     <span class="text-gray-400 text-sm sm:text-base lg:text-lg">/month</span>
@@ -55,10 +75,25 @@
                                 <div v-for="(feature, featureIndex) in plan.features" :key="featureIndex"
                                     class="flex items-start gap-2 sm:gap-3 feature-item"
                                     :style="{ 'animation-delay': `${300 + featureIndex * 50}ms` }">
-                                    <svg v-if="index === 0 && featureIndex >= 3" class="w-4 h-4 sm:w-5 sm:h-5 flex-shrink-0 text-red-500 mt-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                    <!-- Icône simple sans fond -->
+                                    <svg v-if="index === 0 && featureIndex >= 3" 
+                                        class="w-4 h-4 sm:w-5 sm:h-5 flex-shrink-0 text-red-500 mt-0.5" 
+                                        fill="none" 
+                                        stroke="currentColor" 
+                                        viewBox="0 0 24 24">
                                         <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path>
                                     </svg>
-                                    <svg v-else class="w-4 h-4 sm:w-5 sm:h-5 flex-shrink-0 text-white mt-0.5" fill="currentColor"
+                                    <svg v-else-if="index === 0" 
+                                        class="w-4 h-4 sm:w-5 sm:h-5 flex-shrink-0 text-blue-400 mt-0.5" 
+                                        fill="currentColor" 
+                                        viewBox="0 0 20 20">
+                                        <path fill-rule="evenodd"
+                                            d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z"
+                                            clip-rule="evenodd" />
+                                    </svg>
+                                    <svg v-else 
+                                        class="w-4 h-4 sm:w-5 sm:h-5 flex-shrink-0 text-[#FF6B39] mt-0.5" 
+                                        fill="currentColor" 
                                         viewBox="0 0 20 20">
                                         <path fill-rule="evenodd"
                                             d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z"
@@ -73,7 +108,7 @@
                                 :class="[
                                     index === 0
                                         ? 'bg-gradient-to-r from-blue-600 to-blue-700 hover:from-blue-700 hover:to-blue-800 hover:shadow-lg hover:shadow-blue-500/50 hover:scale-105 active:scale-95'
-                                        : 'bg-gradient-to-r from-orange-500 to-orange-600 hover:from-orange-600 hover:to-orange-700 hover:shadow-lg hover:shadow-orange-500/50 hover:scale-105 active:scale-95 text-white'
+                                        : 'bg-gradient-to-r from-[#FF551C] to-[#FF6B39] hover:from-[#FF6B39] hover:to-[#FF804D] hover:shadow-lg hover:shadow-[#FF551C]/50 hover:scale-105 active:scale-95 text-white'
                                 ]">
                                 Get started <span class="ml-1 sm:ml-2">→</span>
                             </button>
@@ -204,7 +239,7 @@ const plans = [
 }
 
 .highlight-orange {
-    filter: drop-shadow(0 0 30px rgba(249, 115, 22, 0.15));
+    filter: drop-shadow(0 0 30px rgba(255, 85, 28, 0.15));
 }
 
 .group:hover .highlight-blue {
@@ -212,7 +247,7 @@ const plans = [
 }
 
 .group:hover .highlight-orange {
-    filter: drop-shadow(0 0 50px rgba(249, 115, 22, 0.3));
+    filter: drop-shadow(0 0 50px rgba(255, 85, 28, 0.3));
 }
 
 .perspective {

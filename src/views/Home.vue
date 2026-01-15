@@ -14,9 +14,12 @@
           <!-- Navigation -->
           <nav class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex items-center justify-between py-6 border-b border-gray-800/50">
             <div class="flex items-center gap-2 group">
- <div class="w-8 h-8 border-2 border-orange-500 rounded-full flex items-center justify-center">
-                  <div class="w-3 h-3 bg-orange-500 rounded-full"></div>
-                </div>              <span class="text-2xl font-bold bg-gradient-to-r from-orange-500 to-orange-600 bg-clip-text text-transparent"><a href="">TOEIC</a></span>
+              <div class="w-8 h-8 border-2 border-orange-500 rounded-full flex items-center justify-center">
+                <div class="w-3 h-3 bg-orange-500 rounded-full"></div>
+              </div>
+              <span class="text-2xl font-bold bg-gradient-to-r from-orange-500 to-orange-600 bg-clip-text text-transparent">
+                <a href="">TOEIC</a>
+              </span>
             </div>
 
             <!-- Desktop Menu -->
@@ -143,7 +146,7 @@
               </div>
     
               <!-- Dashboard Mockup -->
-              <div class="animate-fade-in-right h-[30vh] md:h-[45vh] hover:h-[35vh] md:hover:h-[50vh] w-full bg-[url(./assets/img/admin-dashboard-panel-1.png)] bg-cover bg-no-repeat overflow-hidden hover:scale-105 md:hover:scale-110 transition-all duration-300 border-2 border-transparent rounded-2xl">
+              <div class="animate-fade-in-right h-[50vh] md:h-[45vh] hover:h-[55vh] md:hover:h-[50vh] w-full bg-[url(./assets/img/admin-dashboard-panel-1.png)] bg-cover bg-no-repeat overflow-hidden hover:scale-125 md:hover:scale-130 transition-all duration-300 border-2 border-transparent rounded-2xl">
               </div>
             </div>
     
@@ -254,10 +257,12 @@
     </div>
   </template>
   
-  <script>import ReviewsTestimonialsPage from '../components/ReviewsTestimonialsPage.vue';
+  <script>
+import ReviewsTestimonialsPage from '../components/ReviewsTestimonialsPage.vue';
 import PricingPlans from '../components/PricingPlans.vue';
 import ClassicSubscription from '../components/ClassicSubscription.vue';
 import Footer from '../components/Footer.vue';
+
 export default {
   name: 'Home',
   components: {
