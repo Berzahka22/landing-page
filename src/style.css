@@ -25,3 +25,94 @@ html.dark {
 }
 
 @layer components {}
+
+/* Theme variables for light and dark modes. Components should use these variables for colors. */
+:root, html.light {
+  --bg: #ffffff;
+  --panel-bg: #ffffff;
+  --card-bg: #ffffff;
+  --text: #0f1724; /* slate-900-ish */
+  --muted: #6b7280; /* gray-500 */
+  --accent: #ff6600; /* orange accent */
+  --border: rgba(15,23,36,0.08);
+}
+
+/* Site-wide responsive improvements */
+/* Make images adapt to container and keep aspect ratio */
+img, .responsive-img {
+  max-width: 100%;
+  height: auto;
+  display: block;
+  object-fit: cover;
+}
+
+/* Base button utility to apply consistent sizing */
+.btn {
+  padding: 0.75rem 1rem;
+  font-size: 1rem;
+  border-radius: 0.75rem;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+}
+
+/* Professional smaller buttons on mobile */
+@media (max-width: 768px) {
+  button, .btn {
+    padding: 0.5rem 0.75rem !important;
+    font-size: 0.9rem !important;
+    border-radius: 0.5rem !important;
+  }
+
+  /* Limit very large images on small screens */
+  .max-w-[90%] img,
+  .hero img,
+  .rounded-xl img,
+  .rounded-2xl img,
+  .rounded-3xl img {
+    max-height: 360px;
+    width: 100%;
+    object-fit: cover;
+  }
+
+  /* Disable site-wide floating/dancing animations on mobile */
+  .animate-float,
+  .animate-float-slow,
+  .animate-float-slow2,
+  .animate-float-delay,
+  .animate-float-delay-2,
+  .animate-blob,
+  .animate-blob-delay,
+  .animate-blob-delay-2 {
+    animation: none !important;
+    transform: none !important;
+  }
+
+  /* Prevent group hover transforms causing motion on touch devices */
+  .group:hover { transform: none !important; }
+  .group:hover * { transform: none !important; }
+}
+
+/* Keep reduced-motion users respected */
+@media (prefers-reduced-motion: reduce) {
+  .animate-float,
+  .animate-blob,
+  .animate-float-slow,
+  .animate-float-delay,
+  .animate-float-delay-2 {
+    animation: none !important;
+  }
+}
+
+html.dark {
+  --bg: #0a0e1a;
+  --panel-bg: #0d1117;
+  --card-bg: #1b1f26;
+  --text: #e6eef8;
+  --muted: #94a3b8;
+  --accent: #ff6600;
+  --border: rgba(255,255,255,0.06);
+}
+
+/* Ensure body inherits bg color smoothly */
+html { background-color: var(--bg); color: var(--text); }

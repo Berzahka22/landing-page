@@ -5,9 +5,9 @@
       
       <!-- Animated particles - réduit sur mobile -->
       <div class="absolute inset-0 overflow-hidden">
-        <div class="absolute top-10 md:top-20 left-5 md:left-10 w-12 h-12 md:w-20 md:h-20 rounded-full blur-xl md:blur-2xl animate-float-slow transition-colors duration-500" 
+          <div class="absolute top-10 md:top-20 left-5 md:left-10 w-12 h-12 md:w-20 md:h-20 rounded-full blur-xl md:blur-2xl animate-float-slow transition-colors duration-500" 
              :class="particle1Classes"></div>
-        <div class="absolute bottom-10 md:bottom-20 right-5 md:right-10 w-20 h-20 md:w-32 md:h-32 rounded-full blur-2xl md:blur-3xl animate-float-delay transition-colors duration-500" 
+           <div class="absolute bottom-10 md:bottom-20 right-5 md:right-10 w-20 h-20 md:w-32 md:h-32 rounded-full blur-2xl md:blur-2xl animate-float-delay transition-colors duration-500" 
              :class="particle2Classes"></div>
         <div class="absolute top-1/2 left-1/4 md:left-1/3 w-16 h-16 md:w-24 md:h-24 rounded-full blur-xl md:blur-2xl animate-float-delay-2 transition-colors duration-500" 
              :class="particle3Classes"></div>
@@ -102,7 +102,7 @@
                      :class="testimonialGreenClasses">
                   <!-- Animated background pattern -->
                   <div class="absolute inset-0 opacity-10">
-                    <div class="absolute top-0 right-0 w-24 h-24 md:w-32 lg:w-40 md:h-32 lg:h-40 rounded-full blur-2xl md:blur-3xl transition-colors duration-500"
+                    <div class="absolute top-0 right-0 w-24 h-24 md:w-32 lg:w-40 md:h-32 lg:h-40 rounded-full blur-2xl md:blur-2xl transition-colors duration-500"
                          :class="testimonialGreenPatternClasses"></div>
                   </div>
                   
@@ -118,7 +118,7 @@
                       <img 
                         src="https://images.pexels.com/photos/2379004/pexels-photo-2379004.jpeg?auto=compress&cs=tinysrgb&w=60&h=60&fit=crop&crop=face" 
                         alt="Sarah Jenkins" 
-                        class="w-10 h-10 md:w-12 md:h-12 lg:w-14 lg:h-14 rounded-full object-cover border-2 md:border-3 group-hover:scale-110 transition-all duration-500"
+                        class="responsive-img w-10 h-10 md:w-12 md:h-12 lg:w-14 lg:h-14 rounded-full object-cover border-2 md:border-3 group-hover:scale-110 transition-all duration-500"
                         :class="avatarBorderGreenClasses"
                       />
                       <div class="absolute -bottom-1 -right-1 w-4 h-4 md:w-5 md:h-5 rounded-full border flex items-center justify-center transition-colors duration-500"
@@ -176,7 +176,7 @@
                      :class="testimonialBlueClasses">
                   <!-- Animated background pattern -->
                   <div class="absolute inset-0 opacity-10">
-                    <div class="absolute bottom-0 left-0 w-24 h-24 md:w-32 lg:w-40 md:h-32 lg:h-40 rounded-full blur-2xl md:blur-3xl transition-colors duration-500"
+                    <div class="absolute bottom-0 left-0 w-24 h-24 md:w-32 lg:w-40 md:h-32 lg:h-40 rounded-full blur-2xl md:blur-2xl transition-colors duration-500"
                          :class="testimonialBluePatternClasses"></div>
                   </div>
                   
@@ -192,7 +192,7 @@
                       <img 
                         src="https://images.pexels.com/photos/220453/pexels-photo-220453.jpeg?auto=compress&cs=tinysrgb&w=60&h=60&fit=crop&crop=face" 
                         alt="Michael Chen" 
-                        class="w-10 h-10 md:w-12 md:h-12 lg:w-14 lg:h-14 rounded-full object-cover border-2 md:border-3 group-hover:scale-110 transition-all duration-500"
+                        class="responsive-img w-10 h-10 md:w-12 md:h-12 lg:w-14 lg:h-14 rounded-full object-cover border-2 md:border-3 group-hover:scale-110 transition-all duration-500"
                         :class="avatarBorderBlueClasses"
                       />
                       <div class="absolute -bottom-1 -right-1 w-4 h-4 md:w-5 md:h-5 rounded-full border flex items-center justify-center transition-colors duration-500"
@@ -267,7 +267,7 @@
                       <img 
                         src="https://images.pexels.com/photos/3777943/pexels-photo-3777943.jpeg?auto=compress&cs=tinysrgb&w=60&h=60&fit=crop&crop=face" 
                         alt="Featured User" 
-                        class="w-12 h-12 md:w-14 md:h-14 lg:w-16 lg:h-16 rounded-full object-cover border-3 md:border-4 shadow-lg md:shadow-xl group-hover:scale-105 transition-all duration-500" 
+                        class="responsive-img w-12 h-12 md:w-14 md:h-14 lg:w-16 lg:h-16 rounded-full object-cover border-3 md:border-4 shadow-lg md:shadow-xl group-hover:scale-105 transition-all duration-500" 
                         :class="featuredAvatarBorderClasses"
                       />
                       <div class="absolute -bottom-1.5 -right-1.5 md:-bottom-2 md:-right-2 w-5 h-5 md:w-6 md:h-6 lg:w-7 lg:h-7 rounded-full border md:border-2 flex items-center justify-center transition-colors duration-500"
@@ -367,32 +367,32 @@ export default {
     containerClasses() {
       return this.isDarkMode 
         ? 'bg-slate-900' 
-        : 'bg-gradient-to-br from-orange-50 via-white to-orange-50';
+        : 'bg-gradient-to-br from-[#eae0cd] via-white to-[#eae0cd]';
     },
     
     backgroundGradient() {
       return this.isDarkMode 
         ? 'from-slate-900 via-slate-800/80 to-slate-900' 
-        : 'from-white via-orange-50/80 to-white';
+        : 'from-white via-[#eae0cd]/80 to-white';
     },
     
     // Classes pour les particules
     particle1Classes() {
       return this.isDarkMode 
         ? 'bg-purple-500/10' 
-        : 'bg-orange-500/10';
+        : 'bg-[#eae0cd]/10';
     },
     
     particle2Classes() {
       return this.isDarkMode 
         ? 'bg-blue-500/10' 
-        : 'bg-orange-400/10';
+        : 'bg-[#eae0cd]/10';
     },
     
     particle3Classes() {
       return this.isDarkMode 
         ? 'bg-orange-500/10' 
-        : 'bg-orange-300/10';
+        : 'bg-[#eae0cd]/10';
     },
     
     // Classes pour la carte de rating
@@ -483,20 +483,20 @@ export default {
     // Classes pour le témoignage vert
     testimonialGreenClasses() {
       return this.isDarkMode 
-        ? 'bg-gradient-to-br from-emerald-500 via-green-500 to-emerald-600 hover:shadow-emerald-500/30' 
-        : 'bg-gradient-to-br from-emerald-400 via-green-400 to-emerald-500 hover:shadow-emerald-500/20 border border-emerald-300/50';
+        ? 'bg-gradient-to-br from-emerald-500 via-emerald-600 to-emerald-700 hover:shadow-emerald-500/30' 
+        : 'bg-gradient-to-br from-emerald-700 via-emerald-600 to-emerald-800 hover:shadow-emerald-700/20 border border-emerald-300/50';
     },
     
     testimonialGreenPatternClasses() {
       return this.isDarkMode 
         ? 'bg-white' 
-        : 'bg-emerald-100';
+        : 'bg-emerald-200';
     },
     
     badgeGreenClasses() {
       return this.isDarkMode 
         ? 'bg-white/20 text-white' 
-        : 'bg-white/50 text-emerald-700';
+        : 'bg-white/50 text-emerald-800';
     },
     
     avatarBorderGreenClasses() {

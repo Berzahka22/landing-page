@@ -8,18 +8,13 @@
         <canvas ref="threeCanvas" class="absolute inset-0 pointer-events-none"></canvas>
       </div>
 
-      <!-- Gradient background pour light mode avec touches orange -->
-      <div v-else class="absolute inset-0 bg-gradient-to-br from-white via-orange-50/30 to-white">
-        <!-- Subtle orange blobs in light mode -->
-        <div class="absolute top-1/4 left-1/4 w-96 h-96 bg-orange-500/5 rounded-full blur-3xl animate-blob"></div>
-        <div class="absolute top-1/3 right-1/4 w-96 h-96 bg-orange-400/5 rounded-full blur-3xl animate-blob-delay"></div>
-        <div class="absolute bottom-1/4 left-1/2 w-96 h-96 bg-orange-300/5 rounded-full blur-3xl animate-blob-delay-2"></div>
-      </div>
+      <!-- Plain white background for light mode (force white everywhere) -->
+      <div v-else class="absolute inset-0 bg-white"></div>
   
       <!-- Bouton Toggle Theme Flottant et Déplaçable - RESPONSIVE -->
       <div 
         ref="draggableButton"
-        class="fixed z-50 cursor-grab active:cursor-grabbing select-none touch-none"
+        class="fixed z-50 cursor-grab active:cursor-grabbing select-none"
         :class="isDragging ? 'z-[100]' : 'z-50'"
         :style="{
           top: buttonPosition.y + 'px',
@@ -196,8 +191,8 @@
                 :class="isDarkMode ? 'text-slate-400' : 'text-gray-700'">
                 Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut et massa mi. Aliquam in hendrerit urna. Pellentesque sit amet sapien.
               </p>
-              <div class="flex flex-col sm:flex-row items-center gap-2 sm:gap-3 md:gap-4 pt-3 md:pt-4 justify-center md:justify-start"> 
-                <button class="w-full sm:w-auto px-3 py-2 md:px-4 md:py-2 lg:px-6 lg:py-3 bg-orange-500 text-white text-xs md:text-sm lg:text-base font-medium rounded-lg hover:bg-orange-600 hover:scale-105 hover:shadow-2xl transition-all duration-300">
+              <div class=" flex flex-col sm:flex-row items-center gap-2 sm:gap-3 md:gap-4 pt-3 md:pt-4 justify-center md:justify-start"> 
+                <button class="animate w-full sm:w-auto px-3 py-2 md:px-4 md:py-2 lg:px-6 lg:py-3 bg-orange-500 text-white text-xs md:text-sm lg:text-base font-medium rounded-lg hover:bg-orange-600 hover:scale-105 hover:shadow-2xl transition-all duration-300">
                   Get started
                 </button>
                 <button class="w-full sm:w-auto px-3 py-2 md:px-4 md:py-2 lg:px-6 lg:py-3 bg-orange-500/20 text-orange-300 border border-orange-500/30 text-xs md:text-sm lg:text-base font-medium rounded-lg hover:scale-105 hover:shadow-2xl transition-all duration-300 flex items-center justify-center">
@@ -283,72 +278,51 @@
         </section>
   
         <!-- Power of Two Worlds -->
-        <section :class="isDarkMode ? 'border-t border-slate-800/50' : 'border-t border-gray-300'">
-          <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8 md:py-12 lg:py-20">
-            <div class="mb-6 md:mb-12 lg:mb-16 space-y-3 md:space-y-4 text-center">
-              <h1 class="text-xl md:text-3xl lg:text-5xl font-black animate-fade-in-down transition-colors duration-500"
-                :class="isDarkMode ? 'text-white' : 'text-gray-900'">
-                The power of our two worlds
-              </h1>
-              <p class="text-xs md:text-sm lg:text-lg leading-relaxed max-w-2xl mx-auto animate-slide-up transition-colors duration-500"
-                :class="isDarkMode ? 'text-slate-300' : 'text-gray-700'"
-                style="animation-delay: 0.2s;">
-                Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut et massa mi. Aliquam
-              </p>
+        <section class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12 md:py-20 border-t border-slate-800/50">
+          <div class="mb-8 md:mb-16 space-y-4 text-center md:text-left">
+            <h1 class="text-2xl md:text-5xl font-black animate-fade-in-down text-white">
+              The power of our two worlds
+            </h1>
+            <p class="text-sm md:text-lg text-slate-300 leading-relaxed max-w-2xl mx-auto md:mx-0 animate-slide-up" style="animation-delay: 0.2s;">
+              Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut et massa mi. Aliquam
+            </p>
+          </div>
+  
+          <div class="grid grid-cols-1 lg:grid-cols-2 gap-6 md:gap-8 mb-8">
+            <!-- Mockups Grid -->
+            <div class="animate-fade-in-left animate-slow-bounce h-full w-auto">
+              <div class="h-[300px] md:h-full w-full backdrop-blur-xl border border-slate-700/50 rounded-2xl overflow-hidden p-4 md:p-8 hover:scale-105 hover:border-orange-500 transition-all duration-500
+                bg-[url(@/assets/img/4927380_2585277-1.png)] bg-center bg-contain bg-no-repeat">
+              </div> 
             </div>
   
-            <div class="grid grid-cols-1 lg:grid-cols-2 gap-4 md:gap-6 lg:gap-8 mb-6 md:mb-8">
-              <!-- Mockups Grid -->
-              <div class="animate-fade-in-left animate-slow-bounce h-full w-auto">
-                <div class="h-[200px] md:h-[300px] lg:h-full w-full backdrop-blur-xl border rounded-xl md:rounded-2xl overflow-hidden p-3 md:p-4 lg:p-8 hover:scale-105 hover:border-orange-500 transition-all duration-500
-                  bg-[url(./assets/img/4927380_2585277-1.png)] bg-center bg-contain bg-no-repeat"
-                  :class="isDarkMode ? 'border-slate-700/50' : 'border-gray-300'">
-                </div> 
+            <!-- Features List -->
+            <div class="animate-slide-up border border-slate-700/50 rounded-2xl overflow-hidden p-4 md:p-8 hover:border-orange-500 transition-all duration-300" style="animation-delay: 0.6s;">
+              <!-- Features header -->
+              <div class="flex items-center justify-between mb-6 md:mb-8">
+                <h2 class="text-lg md:text-2xl font-bold text-white">Features</h2>
+                <div class="w-8 h-8 border-2 border-orange-500 rounded-full flex items-center justify-center">
+                  <div class="w-3 h-3 bg-orange-500 rounded-full"></div>
+                </div>
               </div>
   
-              <!-- Features List -->
-              <div class="animate-slide-up border rounded-xl md:rounded-2xl overflow-hidden p-3 md:p-4 lg:p-8 hover:border-orange-500 transition-all duration-300"
-                :class="isDarkMode ? 'border-slate-700/50' : 'border-gray-300'"
-                style="animation-delay: 0.6s;">
-                <!-- Features header -->
-                <div class="flex items-center justify-between mb-4 md:mb-6 lg:mb-8">
-                  <h2 class="text-base md:text-lg lg:text-2xl font-bold transition-colors duration-500"
-                    :class="isDarkMode ? 'text-white' : 'text-gray-900'">
-                    Features
-                  </h2>
-                  <div class="w-6 h-6 md:w-8 md:h-8 border-2 border-orange-500 rounded-full flex items-center justify-center">
-                    <div class="w-2 h-2 md:w-3 md:h-3 bg-orange-500 rounded-full"></div>
+              <!-- Features list -->
+              <div class="space-y-4 md:space-y-6">
+                <!-- Feature 1 to 4 -->
+                <div v-for="(item, index) in 4" :key="index" class="flex items-center justify-between p-3 md:p-4 bg-slate-800/50 rounded-xl border border-slate-700/50 hover:border-orange-500 transition-all duration-300 transform hover:scale-105 animate-slide-up" style="animation-delay: 0.8s;">
+                  <div class="flex items-center space-x-3 md:space-x-4">
+                    <img 
+                      src="https://images.pexels.com/photos/2379004/pexels-photo-2379004.jpeg?auto=compress&cs=tinysrgb&w=60&h=60&fit=crop&crop=face" 
+                      alt="Sarah Jenkins" 
+                      class="w-10 h-10 md:w-12 md:h-12 rounded-full object-cover"
+                    />
+                    <div>
+                      <h3 class="text-white font-semibold text-sm md:text-base">Sarah Jenkins</h3>
+                      <p class="text-slate-400 text-xs md:text-sm">To thirst out a deepen content conversation</p>
+                    </div>
                   </div>
-                </div>
-  
-                <!-- Features list -->
-                <div class="space-y-2 md:space-y-4 lg:space-y-6">
-                  <!-- Feature 1 to 4 -->
-                  <div v-for="(item, index) in 4" :key="index" class="flex items-center justify-between p-2 md:p-3 lg:p-4 rounded-lg md:rounded-xl border hover:border-orange-500 transition-all duration-300 transform hover:scale-105 animate-slide-up"
-                    :class="isDarkMode 
-                      ? 'bg-slate-800/50 border-slate-700/50' 
-                      : 'bg-gray-100/50 border-gray-300'"
-                    style="animation-delay: 0.8s;">
-                    <div class="flex items-center space-x-2 md:space-x-3 lg:space-x-4">
-                      <img 
-                        src="https://images.pexels.com/photos/2379004/pexels-photo-2379004.jpeg?auto=compress&cs=tinysrgb&w=60&h=60&fit=crop&crop=face" 
-                        alt="Sarah Jenkins" 
-                        class="w-8 h-8 md:w-10 md:h-10 lg:w-12 lg:h-12 rounded-full object-cover"
-                      />
-                      <div>
-                        <h3 class="font-semibold text-xs md:text-sm lg:text-base transition-colors duration-500"
-                          :class="isDarkMode ? 'text-white' : 'text-gray-900'">
-                          Sarah Jenkins
-                        </h3>
-                        <p class="text-xs md:text-sm transition-colors duration-500"
-                          :class="isDarkMode ? 'text-slate-400' : 'text-gray-600'">
-                          To thirst out a deepen content conversation
-                        </p>
-                      </div>
-                    </div>
-                    <div class="bg-orange-500/20 text-orange-400 px-1 md:px-2 lg:px-3 py-0.5 md:py-1 rounded-full text-xs md:text-sm font-medium border border-orange-500/30">
-                      $9172
-                    </div>
+                  <div class="bg-orange-500/20 text-orange-400 px-2 md:px-3 py-1 rounded-full text-xs md:text-sm font-medium border border-orange-500/30">
+                    $9172
                   </div>
                 </div>
               </div>
@@ -381,7 +355,7 @@
     
             <div class="grid grid-cols-1 lg:grid-cols-2 gap-4 md:gap-6 lg:gap-8 max-w-4xl mx-auto">
               <div v-for="faq in 2" :key="faq" class="animate-card-appear" :style="{ animationDelay: `${faq * 0.1}s` }">
-                <button class="w-full backdrop-blur-xl border rounded-xl md:rounded-2xl p-3 md:p-4 lg:p-8 hover:border-orange-500 transition-all duration-500 text-left group space-y-1 md:space-y-2 lg:space-y-3"
+                <button class="w-full backdrop-blur-xl border rounded-xl md:rounded-2xl p-3 md:p-4 lg:p-8 hover:border-Bleu-500 transition-all duration-500 text-left group space-y-1 md:space-y-2 lg:space-y-3"
                   :class="isDarkMode 
                     ? 'bg-gradient-to-br from-slate-800/50 to-slate-900/50 border-slate-700/50' 
                     : 'bg-gradient-to-br from-gray-100/50 to-gray-200/50 border-gray-300'">
@@ -420,6 +394,9 @@ import ClassicSubscription from '../components/ClassicSubscription.vue';
 import Footer from '../components/Footer.vue';
 import Section1 from '../components/Section1.vue';
 import Section2 from '../components/Section2.vue';
+import { useTheme } from '../composables/useTheme'
+
+const theme = useTheme()
 
 export default {
 
@@ -431,13 +408,15 @@ export default {
     Footer,
     Section1,
     Section2
-  
   },
   data() {
     return {
       isMobileMenuOpen: false,
-      isDarkMode: true,
       isDragging: false,
+      dragMoved: false,
+      pointerDownX: 0,
+      pointerDownY: 0,
+      pointerDownTime: 0,
       dragStartX: 0,
       dragStartY: 0,
       buttonPosition: {
@@ -445,14 +424,18 @@ export default {
         y: 20
       },
       showMobileHint: false,
-      isMobile: false
+      isMobile: false,
+      _ctxMenuHandler: null
     }
   },
   computed: {
+    isDarkMode() {
+      return theme.isDarkMode.value
+    },
     themeClasses() {
-      return this.isDarkMode 
+      return this.isDarkMode
         ? 'bg-gradient-to-br from-slate-950 via-slate-900 to-slate-950'
-        : 'bg-gradient-to-br from-white via-orange-50/30 to-white';
+        : 'bg-white'
     }
   },
   methods: {
@@ -460,9 +443,7 @@ export default {
       this.isMobileMenuOpen = !this.isMobileMenuOpen;
     },
     toggleTheme() {
-      this.isDarkMode = !this.isDarkMode;
-      // Sauvegarder la préférence dans localStorage
-      localStorage.setItem('theme', this.isDarkMode ? 'dark' : 'light');
+      theme.toggleTheme()
     },
     startDrag(e) {
       e.preventDefault();
@@ -548,16 +529,6 @@ export default {
     }
   },
   mounted() {
-    // Récupérer la préférence de thème depuis localStorage
-    const savedTheme = localStorage.getItem('theme');
-    if (savedTheme) {
-      this.isDarkMode = savedTheme === 'dark';
-    } else {
-      // Vérifier la préférence système
-      const prefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
-      this.isDarkMode = prefersDark;
-    }
-    
     // Vérifier si on est sur mobile
     this.checkIfMobile();
     
@@ -578,11 +549,12 @@ export default {
       }, 5000);
     }
     
-    // Empêcher le menu contextuel sur le bouton
+    // Empêcher le menu contextuel sur le bouton (avec cleanup)
     this.$nextTick(() => {
       const button = this.$refs.draggableButton;
       if (button) {
-        button.addEventListener('contextmenu', (e) => e.preventDefault());
+        this._ctxMenuHandler = (e) => e.preventDefault();
+        button.addEventListener('contextmenu', this._ctxMenuHandler);
       }
     });
     
@@ -592,6 +564,10 @@ export default {
   beforeUnmount() {
     // Nettoyer l'écouteur d'événement
     window.removeEventListener('resize', this.handleResize);
+    const button = this.$refs.draggableButton;
+    if (button && this._ctxMenuHandler) {
+      button.removeEventListener('contextmenu', this._ctxMenuHandler);
+    }
   }
 }
 </script>

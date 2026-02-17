@@ -1,5 +1,6 @@
 <template>
-  <section class="min-h-screen bg-[#0d1117] text-white p-8 md:p-16 flex flex-col md:flex-row items-stretch justify-between gap-12">
+  <section class="min-h-screen p-8 md:p-16 flex flex-col md:flex-row items-stretch justify-between gap-12"
+    :style="{ backgroundColor: 'var(--panel-bg)', color: 'var(--text)' }">
     <div class="max-w-[90%] mx-auto flex flex-col md:flex-row items-stretch gap-12">
       
       <div class="max-w-xl flex flex-col justify-center animate-in fade-in slide-in-from-left-8 duration-1000">
@@ -14,16 +15,18 @@
           <span class="text-transparent bg-clip-text bg-gradient-to-r from-blue-400 to-cyan-300">TOEIC Training</span>
         </h1>
         
-        <p class="text-gray-400 text-lg mb-10 leading-relaxed">
+        <p class="text-lg mb-10 leading-relaxed" :style="{ color: 'var(--muted)' }">
           Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut et massa mi. 
           Aliquam in hendrerit urna.
         </p>
 
         <div class="flex gap-4 items-center">
-          <button class="bg-[#007bff] hover:bg-blue-600 hover:scale-105 active:scale-95 px-8 py-3 rounded-lg font-medium transition-all duration-300 shadow-lg hover:shadow-blue-500/40">
+          <button class="btn px-8 py-3 rounded-lg font-medium transition-all duration-300 shadow-lg"
+            :style="{ backgroundColor: '#60A5FA', color: '#fff' }">
             Text button
           </button>
-          <button class="border border-gray-600 hover:border-blue-400 hover:text-blue-400 px-8 py-3 rounded-lg font-medium transition-all duration-300 transform hover:bg-blue-400/5">
+          <button class="btn px-8 py-3 rounded-lg font-medium transition-all duration-300 border"
+            :style="{ borderColor: '#60A5FA', color: 'var(--text)' }">
             Text button
           </button>
         </div>
@@ -34,28 +37,30 @@
           <img 
             src="/public/assets/img/cube.png" 
             alt="Decorative" 
-            class="relative   transition-all duration-500 hover:scale-110 hover:rotate-6 transform" 
+            class="responsive-img relative transition-all duration-500 hover:scale-110 hover:rotate-6 transform" 
           />
         </div>
       </div>
 
-      <div class="bg-[#080B14] rounded-3xl p-8 w-full md:w-[900px] flex flex-col border border-gray-800 hover:border-blue-500/30 transition-all duration-700 group shadow-2xl animate-in fade-in slide-in-from-right-8 duration-1000">
+      <div class="rounded-3xl p-8 w-full md:w-[900px] flex flex-col hover:border-opacity-80 transition-all duration-700 group shadow-2xl animate-in fade-in slide-in-from-right-8 duration-1000"
+        :style="{ backgroundColor: 'var(--card-bg)', border: '1px solid var(--border)', color: 'var(--text)' }">
         
         <div class="flex justify-between items-center mb-8">
-          <span class="text-xs text-gray-500 uppercase tracking-widest">Featured Module</span>
-          <button class="border border-gray-600 hover:border-blue-400 hover:text-blue-400 px-8 py-2 rounded-lg font-medium transition-all duration-300 transform hover:bg-blue-400/5">
+          <span class="text-xs uppercase tracking-widest" :style="{ color: 'var(--muted)' }">Featured Module</span>
+          <button class="px-8 py-2 rounded-lg font-medium transition-all duration-300 border"
+            :style="{ borderColor: 'var(--border)', color: 'var(--text)' }">
             Text button
           </button>      
         </div>
         
-        <div class="relative rounded-2xl overflow-hidden mb-8 flex-grow shadow-inner ">
+        <div class="relative rounded-2xl overflow-hidden mb-8 flex-grow shadow-inner " :style="{ backgroundColor: 'transparent' }">
           <img 
             src="/public/assets/img/file.png" 
             alt="Meeting" 
             class="w-full h-full object-cover transition-transform duration-1000 group-hover:scale-105" 
           />
-          <div class="absolute inset-0 bg-gradient-to-t from-[#080B14] to-transparent opacity-60"></div>
-          <div class="absolute inset-0 bg-blue-600/10 opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
+          <div class="absolute inset-0" :style="{ background: 'linear-gradient(to top, var(--card-bg), transparent)', opacity: 0 }"></div>
+          <div class="absolute inset-0 opacity-0 group-hover:opacity-100 transition-opacity duration-500" :style="{ backgroundColor: 'var(--accent)', opacity: 0.06 }"></div>
         </div>
 
         <div class="mt-auto"> 
@@ -64,7 +69,7 @@
             <h2 class="text-3xl font-bold tracking-tight">Interview Preparation</h2>
           </div>
 
-          <p class="text-gray-400 text-sm leading-relaxed max-w-md">
+          <p class="text-sm leading-relaxed max-w-md" :style="{ color: 'var(--muted)' }">
             Pellentesque sit amet sapien fringilla, mattis ligula consectetur, ultrices mauris. 
             Maecenas ut et massa mi aliquam in hendrerit urna.
           </p>

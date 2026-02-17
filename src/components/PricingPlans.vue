@@ -147,7 +147,7 @@
 
                             <!-- CTA Button -->
                             <button
-                                class="w-full py-2 sm:py-3 lg:py-4 px-4 sm:px-6 rounded-lg sm:rounded-xl font-semibold text-sm sm:text-base transition-all duration-300 transform group-hover:shadow-lg hover:scale-105 active:scale-95"
+                                class="btn w-full py-2 sm:py-3 lg:py-4 px-4 sm:px-6 rounded-lg sm:rounded-xl font-semibold text-sm sm:text-base transition-all duration-300 transform group-hover:shadow-lg hover:scale-105 active:scale-95"
                                 :class="buttonClasses[index]">
                                 <span class="flex items-center justify-center transition-colors duration-300">
                                     {{ plan.buttonText }}
@@ -166,12 +166,12 @@
             
             <!-- FAQ/Note section -->
             <div class="mt-8 sm:mt-12 lg:mt-16 text-center animate-fade-in-up" style="animation-delay: 600ms">
-                <p :class="faqTextClasses" 
-                   class="text-sm sm:text-base transition-colors duration-500">
-                    Need help choosing? <button @click="showContact = true" 
-                     :class="faqLinkClasses" 
-                     class="font-medium hover:underline transition-colors duration-300">Contact our sales team</button>
-                </p>
+                     <p :class="faqTextClasses" 
+                         class="text-sm sm:text-base transition-colors duration-500">
+                          Need help choosing? <button @click="showContact = true" 
+                            :class="faqLinkClasses" 
+                            class="btn font-medium hover:underline transition-colors duration-300">Contact our sales team</button>
+                     </p>
                 <div v-if="showContact" class="mt-4">
                     <p :class="contactTextClasses" 
                        class="text-xs sm:text-sm transition-colors duration-500">
@@ -263,7 +263,7 @@ const plans = [
 const containerClasses = computed(() => 
     props.isDarkMode 
         ? 'bg-gradient-to-tr from-gray-950 via-orange-500/5 to-orange-600/30' 
-        : 'bg-gradient-to-tr from-orange-50 via-white to-orange-50/30'
+        : 'bg-gradient-to-tr from-[#eae0cd] via-white to-[#eae0cd]/30'
 )
 
 const titleClasses = computed(() => 
@@ -288,7 +288,7 @@ const planContainerClasses = computed(() => [
     
     props.isDarkMode 
         ? 'bg-gradient-to-br from-gray-800/40 via-gray-900/40 to-gray-950/80 border-gray-700/40 hover:border-orange-500/60' 
-        : 'bg-gradient-to-br from-orange-50/90 via-white/90 to-orange-50/90 border-orange-200/60 hover:border-orange-400/60',
+        : 'bg-gradient-to-br from-[#eae0cd]/90 via-white/90 to-[#eae0cd]/90 border-[#eae0cd]/60 hover:border-[#eae0cd]/60',
     
     props.isDarkMode 
         ? 'bg-gradient-to-br from-purple-950/80 via-gray-900/80 to-gray-950/80 border-purple-800/40 hover:border-purple-600/60' 
@@ -302,7 +302,7 @@ const hoverOverlayClasses = computed(() => [
     
     props.isDarkMode 
         ? 'bg-gradient-to-br from-orange-600/10 to-transparent' 
-        : 'bg-gradient-to-br from-orange-400/10 to-transparent',
+        : 'bg-gradient-to-br from-[#eae0cd]/10 to-transparent',
     
     props.isDarkMode 
         ? 'bg-gradient-to-br from-purple-600/10 to-transparent' 
@@ -317,7 +317,7 @@ const badgeClasses = computed(() => [
     
     props.isDarkMode 
         ? 'bg-gradient-to-r from-orange-500 to-orange-600' 
-        : 'bg-gradient-to-r from-orange-400 to-orange-500',
+        : 'bg-gradient-to-r from-[#eae0cd] to-[#d8c9ad]',
     
     props.isDarkMode 
         ? 'bg-gradient-to-r from-purple-600 to-purple-700' 
@@ -326,7 +326,7 @@ const badgeClasses = computed(() => [
 
 const badgeTextClasses = computed(() => [
     props.isDarkMode ? 'text-white' : 'text-white',
-    props.isDarkMode ? 'text-white' : 'text-white',
+    props.isDarkMode ? 'text-white' : 'text-gray-800',
     props.isDarkMode ? 'text-white' : 'text-white'
 ])
 
@@ -349,7 +349,7 @@ const discountBadgeClasses = computed(() => [
     
     props.isDarkMode 
         ? 'bg-gradient-to-r from-orange-500/20 to-orange-600/20 border-orange-500/30' 
-        : 'bg-gradient-to-r from-orange-400/20 to-orange-500/20 border-orange-400/40',
+        : 'bg-gradient-to-r from-[#eae0cd]/20 to-[#eae0cd]/20 border-[#eae0cd]/40',
     
     props.isDarkMode 
         ? 'bg-gradient-to-r from-purple-600/20 to-purple-700/20 border-purple-500/30' 
@@ -358,7 +358,7 @@ const discountBadgeClasses = computed(() => [
 
 const discountTextClasses = computed(() => [
     props.isDarkMode ? 'text-blue-300' : 'text-blue-600',
-    props.isDarkMode ? 'text-orange-300' : 'text-orange-600',
+    props.isDarkMode ? 'text-orange-300' : 'text-[#7a6a4f]',
     props.isDarkMode ? 'text-purple-300' : 'text-purple-600'
 ])
 
@@ -390,7 +390,7 @@ const featureIconWrapperClasses = computed(() => [
     
     props.isDarkMode 
         ? 'bg-orange-900/30' 
-        : 'bg-orange-100',
+        : 'bg-[#eae0cd]/30',
     
     props.isDarkMode 
         ? 'bg-purple-900/30' 
@@ -399,7 +399,7 @@ const featureIconWrapperClasses = computed(() => [
 
 const featureIconIncludedClasses = computed(() => [
     props.isDarkMode ? 'text-blue-400' : 'text-blue-600',
-    props.isDarkMode ? 'text-orange-400' : 'text-orange-600',
+    props.isDarkMode ? 'text-orange-400' : 'text-[#7a6a4f]',
     props.isDarkMode ? 'text-purple-400' : 'text-purple-600'
 ])
 
@@ -428,7 +428,7 @@ const buttonClasses = computed(() => [
     
     props.isDarkMode 
         ? 'bg-gradient-to-r from-orange-500 to-orange-600 hover:from-orange-600 hover:to-orange-700 text-white shadow-orange-500/50' 
-        : 'bg-gradient-to-r from-orange-400 to-orange-500 hover:from-orange-500 hover:to-orange-600 text-white shadow-orange-400/50',
+        : 'bg-gradient-to-r from-[#eae0cd] to-[#d8c9ad] hover:from-[#d8c9ad] hover:to-[#c7b99a] text-gray-800 shadow-none',
     
     props.isDarkMode 
         ? 'bg-gradient-to-r from-purple-600 to-purple-700 hover:from-purple-700 hover:to-purple-800 text-white shadow-purple-500/50' 
@@ -440,7 +440,7 @@ const buttonClasses = computed(() => [
 )
 
 const faqLinkClasses = computed(() => 
-    props.isDarkMode ? 'text-orange-400 hover:text-orange-300' : 'text-orange-500 hover:text-orange-600'
+    props.isDarkMode ? 'text-orange-400 hover:text-orange-300' : 'text-[#7a6a4f] hover:text-[#6b5b3f]'
 )
 
 const contactTextClasses = computed(() => 
