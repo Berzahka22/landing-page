@@ -302,7 +302,7 @@ const hoverOverlayClasses = computed(() => [
     
     props.isDarkMode 
         ? 'bg-gradient-to-br from-orange-600/10 to-transparent' 
-        : 'bg-gradient-to-br from-[#eae0cd]/10 to-transparent',
+        : 'bg-gradient-to-br from-orange-600/10 to-transparent',
     
     props.isDarkMode 
         ? 'bg-gradient-to-br from-purple-600/10 to-transparent' 
@@ -317,7 +317,7 @@ const badgeClasses = computed(() => [
     
     props.isDarkMode 
         ? 'bg-gradient-to-r from-orange-500 to-orange-600' 
-        : 'bg-gradient-to-r from-[#eae0cd] to-[#d8c9ad]',
+        : 'bg-gradient-to-r from-orange-500 to-orange-600',
     
     props.isDarkMode 
         ? 'bg-gradient-to-r from-purple-600 to-purple-700' 
@@ -349,7 +349,7 @@ const discountBadgeClasses = computed(() => [
     
     props.isDarkMode 
         ? 'bg-gradient-to-r from-orange-500/20 to-orange-600/20 border-orange-500/30' 
-        : 'bg-gradient-to-r from-[#eae0cd]/20 to-[#eae0cd]/20 border-[#eae0cd]/40',
+        : 'bg-gradient-to-r from-orange-500/20 to-orange-600/20 border-orange-500/30',
     
     props.isDarkMode 
         ? 'bg-gradient-to-r from-purple-600/20 to-purple-700/20 border-purple-500/30' 
@@ -358,7 +358,7 @@ const discountBadgeClasses = computed(() => [
 
 const discountTextClasses = computed(() => [
     props.isDarkMode ? 'text-blue-300' : 'text-blue-600',
-    props.isDarkMode ? 'text-orange-300' : 'text-[#7a6a4f]',
+    props.isDarkMode ? 'text-orange-300' : 'text-[00000]',
     props.isDarkMode ? 'text-purple-300' : 'text-purple-600'
 ])
 
@@ -390,7 +390,7 @@ const featureIconWrapperClasses = computed(() => [
     
     props.isDarkMode 
         ? 'bg-orange-900/30' 
-        : 'bg-[#eae0cd]/30',
+        : 'bg-[#d3a485]/30',
     
     props.isDarkMode 
         ? 'bg-purple-900/30' 
@@ -428,7 +428,7 @@ const buttonClasses = computed(() => [
     
     props.isDarkMode 
         ? 'bg-gradient-to-r from-orange-500 to-orange-600 hover:from-orange-600 hover:to-orange-700 text-white shadow-orange-500/50' 
-        : 'bg-gradient-to-r from-[#eae0cd] to-[#d8c9ad] hover:from-[#d8c9ad] hover:to-[#c7b99a] text-gray-800 shadow-none',
+        : 'bg-gradient-to-r from-orange-500 to-orange-600 hover:from-orange-600 hover:to-orange-700 text-white shadow-orange-500/50' ,
     
     props.isDarkMode 
         ? 'bg-gradient-to-r from-purple-600 to-purple-700 hover:from-purple-700 hover:to-purple-800 text-white shadow-purple-500/50' 
@@ -597,15 +597,13 @@ const contactTextClasses = computed(() =>
     perspective: 1200px;
 }
 
-/* Smooth transitions */
-* {
+ * {
     transition-property: transform, opacity, background-color, border-color, color, box-shadow;
     transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
     transition-duration: 300ms;
 }
 
-/* Optimizations for reduced motion */
-@media (prefers-reduced-motion: reduce) {
+ @media (prefers-reduced-motion: reduce) {
     .pricing-card,
     .feature-item,
     .animate-fade-in-down,
@@ -628,14 +626,12 @@ const contactTextClasses = computed(() =>
     }
 }
 
-/* Professional enhancements */
-.backdrop-blur-xl {
+ .backdrop-blur-xl {
     backdrop-filter: blur(12px);
     -webkit-backdrop-filter: blur(12px);
 }
 
-/* Gradient borders on hover */
-.group:hover .border {
+ .group:hover .border {
     border-image-slice: 1;
 }
 

@@ -9,7 +9,7 @@ function applyDocumentClass() {
 
   // Force white background for light theme to ensure entire app is white
   if (!isDarkMode.value) {
-    document.documentElement.style.backgroundColor = '#eae0cd';
+    document.documentElement.style.backgroundColor = '#eae0cdde';
   } else {
     document.documentElement.style.backgroundColor = '';
   }
