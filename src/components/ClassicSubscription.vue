@@ -274,8 +274,7 @@
   animation-delay: 0.8s;
 }
 
-/* Pour mobile, on réduit l'animation blob */
-@media (max-width: 768px) {
+ @media (max-width: 768px) {
   @keyframes blob {
     0%, 100% {
       transform: translate(0, 0) scale(1);
@@ -289,8 +288,7 @@
   }
 }
 
-/* Transition delays pour animations séquentielles */
-.delay-100 {
+ .delay-100 {
   transition-delay: 100ms;
 }
 

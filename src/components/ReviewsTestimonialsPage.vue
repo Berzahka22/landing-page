@@ -470,7 +470,7 @@ export default {
     
     ratingDescriptionClasses() {
       return this.isDarkMode 
-        ? 'text-slate-300/80 group-hover:text-slate-200' 
+        ? 'text-slate-300/80 group-hover:text-slate-200'    
         : 'text-gray-600/80 group-hover:text-gray-700';
     },
     
