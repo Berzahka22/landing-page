@@ -177,12 +177,12 @@
         </div>
       </div>
 
-      <!-- Hero Section with Professional Slider - Version mobile optimisée -->
+      <!-- Hero Section with Professional Slider - Version mobile optimisée avec agrandissement au clic -->
       <section class="min-h-[calc(100vh-80px)] md:min-h-screen max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex items-center justify-center">
-        <div class="grid grid-cols-1 lg:grid-cols-2 gap-6 lg:gap-16 items-center w-full py-6 md:py-12 animate-fade-in-down">
+        <div class="grid grid-cols-1 lg:grid-cols-2 gap-4 lg:gap-16 items-center w-full py-4 md:py-12 animate-fade-in-down">
           
-          <!-- Left Column - Text Content (optimisé mobile) -->
-          <div class="space-y-4 md:space-y-8 text-center lg:text-left flex flex-col justify-center order-2 lg:order-1">
+          <!-- Left Column - Text Content (optimisé mobile - placé en bas) -->
+          <div class="space-y-3 md:space-y-8 text-center lg:text-left flex flex-col justify-end order-2 lg:order-1 mt-2 lg:mt-0">
             <h1 class="text-2xl sm:text-4xl md:text-5xl lg:text-6xl font-extrabold leading-tight transition-colors duration-500 px-2"
               :class="isDarkMode ? 'text-white' : 'text-gray-900'">
               More than a score.
@@ -196,20 +196,26 @@
             </p>
             
             <!-- Buttons optimisés mobile -->
-            <div class="flex flex-col sm:flex-row items-center gap-2 pt-2 justify-center lg:justify-start px-4 sm:px-0"> 
-              <button class="w-full sm:w-auto px-4 py-2.5 sm:px-6 sm:py-3 md:px-8 md:py-4 bg-orange-500 text-white text-xs sm:text-sm md:text-base font-bold rounded-xl hover:bg-orange-600 active:scale-95 shadow-lg hover:shadow-orange-500/50 transition-all duration-300">
+            <div class="flex flex-col sm:flex-row items-center gap-2 pt-1 justify-center lg:justify-start px-4 sm:px-0"> 
+              <button class="w-full sm:w-auto px-4 py-3 sm:px-6 sm:py-3 md:px-8 md:py-4 bg-orange-500 text-white text-xs sm:text-sm md:text-base font-bold rounded-xl hover:bg-orange-600 active:scale-95 shadow-lg hover:shadow-orange-500/50 transition-all duration-300">
                 Get started
               </button>
-              <button class="w-full sm:w-auto px-4 py-2.5 sm:px-6 sm:py-3 md:px-8 md:py-4 bg-transparent text-orange-500 border-2 border-orange-500/50 text-xs sm:text-sm md:text-base font-bold rounded-xl hover:bg-orange-500/10 active:scale-95 transition-all duration-300 flex items-center justify-center">
+              <button class="w-full sm:w-auto px-4 py-3 sm:px-6 sm:py-3 md:px-8 md:py-4 bg-transparent text-orange-500 border-2 border-orange-500/50 text-xs sm:text-sm md:text-base font-bold rounded-xl hover:bg-orange-500/10 active:scale-95 transition-all duration-300 flex items-center justify-center">
                 Learn more <span class="ml-1 md:ml-2">→</span>
               </button>
             </div>
           </div>
 
-          <!-- Right Column - Professional Slider (optimisé mobile) -->
-          <div class="relative w-full h-[180px] sm:h-[220px] md:h-[340px] lg:h-[420px] order-1 lg:order-2" @mouseenter="pauseSlider" @mouseleave="resumeSlider">
-            <!-- Slider Container -->
-            <div class="relative w-full h-full overflow-hidden rounded-xl md:rounded-2xl lg:rounded-3xl shadow-xl md:shadow-2xl">
+          <!-- Right Column - Professional Slider (optimisé mobile - image plus grande avec effet d'agrandissement au clic) -->
+          <div class="relative w-full h-[260px] sm:h-[300px] md:h-[340px] lg:h-[420px] order-1 lg:order-2 mb-2 lg:mb-0" 
+               @mouseenter="pauseSlider" 
+               @mouseleave="resumeSlider">
+            
+            <!-- Slider Container avec effet d'agrandissement au clic -->
+            <div class="relative w-full h-full overflow-hidden rounded-xl md:rounded-2xl lg:rounded-3xl shadow-xl md:shadow-2xl transition-all duration-300 cursor-pointer"
+                 :class="{ 'scale-105 shadow-2xl z-30': expandedSlide === currentSlide }"
+                 @click="toggleExpandSlide(currentSlide)">
+              
               <!-- Slides Track -->
               <div 
                 class="flex h-full transition-transform duration-500 md:duration-700 ease-out"
@@ -217,57 +223,108 @@
               >
                 <!-- Slide 1 - Training -->
                 <div class="w-full h-full flex-shrink-0 relative group">
-                  <div class="absolute inset-0 bg-cover bg-center transition-transform duration-700 md:duration-1000 group-hover:scale-110"
-                    style="background-image: url('./assets/img/hero-training-img.png')"></div>
-                  <div class="absolute inset-0 bg-gradient-to-t from-black/90 via-black/40 to-transparent"></div>
+                  <div class="absolute inset-0 bg-cover bg-center transition-transform duration-700 md:duration-1000"
+                       :class="{ 'scale-110': expandedSlide === 0 }"
+                       style="background-image: url('./assets/img/hero-training-img.png')"></div>
+                  <div class="absolute inset-0 bg-gradient-to-t from-black/90 via-black/40 to-transparent"
+                       :class="{ 'from-black/95': expandedSlide === 0 }"></div>
                   
-                  <!-- Content Overlay (adapté mobile) -->
-                  <div class="absolute bottom-0 left-0 right-0 p-3 sm:p-4 md:p-6 lg:p-8">
-                    <span class="inline-block px-1.5 py-0.5 sm:px-2 sm:py-1 bg-orange-500/20 text-orange-400 text-[10px] sm:text-xs font-medium rounded-full border border-orange-500/30 mb-1 sm:mb-2">Featured</span>
-                    <h2 class="text-sm sm:text-base md:text-xl lg:text-2xl xl:text-3xl font-bold text-white mb-0.5 sm:mb-1">Training</h2>
-                    <p class="text-[10px] sm:text-xs text-gray-300 max-w-md line-clamp-1 sm:line-clamp-2">Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+                  <!-- Content Overlay avec agrandissement -->
+                  <div class="absolute bottom-0 left-0 right-0 transition-all duration-300"
+                       :class="expandedSlide === 0 ? 'p-6 sm:p-8' : 'p-4 sm:p-4 md:p-6 lg:p-8'">
+                    <span class="inline-block px-2 py-1 sm:px-2 sm:py-1 bg-orange-500/20 text-orange-400 text-xs sm:text-xs font-medium rounded-full border border-orange-500/30 mb-2 sm:mb-2"
+                          :class="{ 'text-sm px-3 py-1.5': expandedSlide === 0 }">
+                      Featured
+                    </span>
+                    <h2 class="font-bold text-white mb-1 sm:mb-1 transition-all duration-300"
+                        :class="expandedSlide === 0 ? 'text-xl sm:text-2xl' : 'text-base sm:text-base md:text-xl lg:text-2xl xl:text-3xl'">
+                      Training
+                    </h2>
+                    <p class="text-gray-300 max-w-md transition-all duration-300"
+                       :class="expandedSlide === 0 ? 'text-sm sm:text-base' : 'text-xs sm:text-xs'">
+                      Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+                    </p>
                   </div>
                 </div>
 
                 <!-- Slide 2 - Career -->
                 <div class="w-full h-full flex-shrink-0 relative group">
-                  <div class="absolute inset-0 bg-cover bg-center transition-transform duration-700 md:duration-1000 group-hover:scale-110"
-                    style="background-image: url('./assets/img/hero-career-img.png')"></div>
-                  <div class="absolute inset-0 bg-gradient-to-t from-black/90 via-black/40 to-transparent"></div>
+                  <div class="absolute inset-0 bg-cover bg-center transition-transform duration-700 md:duration-1000"
+                       :class="{ 'scale-110': expandedSlide === 1 }"
+                       style="background-image: url('./assets/img/hero-career-img.png')"></div>
+                  <div class="absolute inset-0 bg-gradient-to-t from-black/90 via-black/40 to-transparent"
+                       :class="{ 'from-black/95': expandedSlide === 1 }"></div>
                   
-                  <div class="absolute bottom-0 left-0 right-0 p-3 sm:p-4 md:p-6 lg:p-8">
-                    <span class="inline-block px-1.5 py-0.5 sm:px-2 sm:py-1 bg-orange-500/20 text-orange-400 text-[10px] sm:text-xs font-medium rounded-full border border-orange-500/30 mb-1 sm:mb-2">New</span>
-                    <h2 class="text-sm sm:text-base md:text-xl lg:text-2xl xl:text-3xl font-bold text-white mb-0.5 sm:mb-1">Career</h2>
-                    <p class="text-[10px] sm:text-xs text-gray-300 max-w-md line-clamp-1 sm:line-clamp-2">Aliquam in hendrerit urna. Pellentesque sit amet.</p>
+                  <div class="absolute bottom-0 left-0 right-0 transition-all duration-300"
+                       :class="expandedSlide === 1 ? 'p-6 sm:p-8' : 'p-4 sm:p-4 md:p-6 lg:p-8'">
+                    <span class="inline-block px-2 py-1 sm:px-2 sm:py-1 bg-orange-500/20 text-orange-400 text-xs sm:text-xs font-medium rounded-full border border-orange-500/30 mb-2 sm:mb-2"
+                          :class="{ 'text-sm px-3 py-1.5': expandedSlide === 1 }">
+                      New
+                    </span>
+                    <h2 class="font-bold text-white mb-1 sm:mb-1 transition-all duration-300"
+                        :class="expandedSlide === 1 ? 'text-xl sm:text-2xl' : 'text-base sm:text-base md:text-xl lg:text-2xl xl:text-3xl'">
+                      Career
+                    </h2>
+                    <p class="text-gray-300 max-w-md transition-all duration-300"
+                       :class="expandedSlide === 1 ? 'text-sm sm:text-base' : 'text-xs sm:text-xs'">
+                      Aliquam in hendrerit urna. Pellentesque sit amet.
+                    </p>
                   </div>
                 </div>
 
                 <!-- Slide 3 - Workshop -->
                 <div class="w-full h-full flex-shrink-0 relative group">
-                  <div class="absolute inset-0 bg-cover bg-center transition-transform duration-700 md:duration-1000 group-hover:scale-110"
-                    style="background-image: url('./assets/img/file.png')"></div>
-                  <div class="absolute inset-0 bg-gradient-to-t from-black/90 via-black/40 to-transparent"></div>
-                  <div class="absolute bottom-0 left-0 right-0 p-3 sm:p-4 md:p-6 lg:p-8">
-                    <h2 class="text-sm sm:text-base md:text-xl lg:text-2xl xl:text-3xl font-bold text-white mb-0.5 sm:mb-1">Workshop</h2>
-                    <p class="text-[10px] sm:text-xs text-gray-300 max-w-md line-clamp-1 sm:line-clamp-2">Interactive sessions with experts</p>
+                  <div class="absolute inset-0 bg-cover bg-center transition-transform duration-700 md:duration-1000"
+                       :class="{ 'scale-110': expandedSlide === 2 }"
+                       style="background-image: url('./assets/img/file.png')"></div>
+                  <div class="absolute inset-0 bg-gradient-to-t from-black/90 via-black/40 to-transparent"
+                       :class="{ 'from-black/95': expandedSlide === 2 }"></div>
+                  <div class="absolute bottom-0 left-0 right-0 transition-all duration-300"
+                       :class="expandedSlide === 2 ? 'p-6 sm:p-8' : 'p-4 sm:p-4 md:p-6 lg:p-8'">
+                    <h2 class="font-bold text-white mb-1 sm:mb-1 transition-all duration-300"
+                        :class="expandedSlide === 2 ? 'text-xl sm:text-2xl' : 'text-base sm:text-base md:text-xl lg:text-2xl xl:text-3xl'">
+                      Workshop
+                    </h2>
+                    <p class="text-gray-300 max-w-md transition-all duration-300"
+                       :class="expandedSlide === 2 ? 'text-sm sm:text-base' : 'text-xs sm:text-xs'">
+                      Interactive sessions with experts
+                    </p>
                   </div>
                 </div>
 
                 <!-- Slide 4 - Mentorship -->
                 <div class="w-full h-full flex-shrink-0 relative group">
-                  <div class="absolute inset-0 bg-cover bg-center transition-transform duration-700 md:duration-1000 group-hover:scale-110"
-                    style="background-image: url('./assets/img/image-2.png')"></div>
-                  <div class="absolute inset-0 bg-gradient-to-t from-black/90 via-black/40 to-transparent"></div>
-                  <div class="absolute bottom-0 left-0 right-0 p-3 sm:p-4 md:p-6 lg:p-8">
-                    <h2 class="text-sm sm:text-base md:text-xl lg:text-2xl xl:text-3xl font-bold text-white mb-0.5 sm:mb-1">Mentorship</h2>
-                    <p class="text-[10px] sm:text-xs text-gray-300 max-w-md line-clamp-1 sm:line-clamp-2">1-on-1 guidance from professionals</p>
+                  <div class="absolute inset-0 bg-cover bg-center transition-transform duration-700 md:duration-1000"
+                       :class="{ 'scale-110': expandedSlide === 3 }"
+                       style="background-image: url('./assets/img/image-2.png')"></div>
+                  <div class="absolute inset-0 bg-gradient-to-t from-black/90 via-black/40 to-transparent"
+                       :class="{ 'from-black/95': expandedSlide === 3 }"></div>
+                  <div class="absolute bottom-0 left-0 right-0 transition-all duration-300"
+                       :class="expandedSlide === 3 ? 'p-6 sm:p-8' : 'p-4 sm:p-4 md:p-6 lg:p-8'">
+                    <h2 class="font-bold text-white mb-1 sm:mb-1 transition-all duration-300"
+                        :class="expandedSlide === 3 ? 'text-xl sm:text-2xl' : 'text-base sm:text-base md:text-xl lg:text-2xl xl:text-3xl'">
+                      Mentorship
+                    </h2>
+                    <p class="text-gray-300 max-w-md transition-all duration-300"
+                       :class="expandedSlide === 3 ? 'text-sm sm:text-base' : 'text-xs sm:text-xs'">
+                      1-on-1 guidance from professionals
+                    </p>
                   </div>
                 </div>
               </div>
 
+              <!-- Indicateur d'agrandissement -->
+              <div v-if="expandedSlide === currentSlide" 
+                   class="absolute top-3 left-3 bg-orange-500 text-white text-xs px-2 py-1 rounded-full z-30 flex items-center gap-1">
+                <svg class="w-3 h-3" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0zM10 7v3m0 0v3m0-3h3m-3 0H7" />
+                </svg>
+                <span>Agrandi</span>
+              </div>
+
               <!-- Navigation Arrows (cachées sur mobile, visibles sur desktop) -->
               <button 
-                @click="prevSlide"
+                @click.stop="prevSlide"
                 class="hidden md:flex absolute left-2 lg:left-4 top-1/2 transform -translate-y-1/2 w-8 h-8 lg:w-10 lg:h-10 bg-black/50 backdrop-blur-md rounded-full items-center justify-center text-white hover:bg-orange-500 transition-colors duration-300 z-20 border border-white/10"
               >
                 <svg class="w-4 h-4 lg:w-5 lg:h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -276,7 +333,7 @@
               </button>
 
               <button 
-                @click="nextSlide"
+                @click.stop="nextSlide"
                 class="hidden md:flex absolute right-2 lg:right-4 top-1/2 transform -translate-y-1/2 w-8 h-8 lg:w-10 lg:h-10 bg-black/50 backdrop-blur-md rounded-full items-center justify-center text-white hover:bg-orange-500 transition-colors duration-300 z-20 border border-white/10"
               >
                 <svg class="w-4 h-4 lg:w-5 lg:h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -285,12 +342,12 @@
               </button>
 
               <!-- Slide Counter (mobile uniquement) -->
-              <div class="absolute top-2 right-2 sm:top-3 sm:right-3 md:hidden bg-black/50 backdrop-blur-md px-1.5 py-0.5 sm:px-2 sm:py-1 rounded-full text-white text-[10px] sm:text-xs border border-white/10 z-20">
+              <div class="absolute top-3 right-3 sm:top-3 sm:right-3 md:hidden bg-black/50 backdrop-blur-md px-2 py-1 sm:px-2 sm:py-1 rounded-full text-white text-xs sm:text-xs border border-white/10 z-20">
                 {{ String(currentSlide + 1).padStart(2, '0') }}/{{ String(totalSlides).padStart(2, '0') }}
               </div>
 
               <!-- Progress Bar -->
-              <div class="absolute bottom-0 left-0 right-0 h-0.5 sm:h-1 bg-white/10 z-20">
+              <div class="absolute bottom-0 left-0 right-0 h-1 sm:h-1 bg-white/10 z-20">
                 <div 
                   class="h-full bg-orange-500 transition-all duration-500 md:duration-700 ease-out"
                   :style="{ width: `${((currentSlide + 1) / totalSlides) * 100}%` }"
@@ -299,7 +356,7 @@
             </div>
 
             <!-- Dots Navigation (adapté mobile) -->
-            <div class="absolute -bottom-5 sm:-bottom-6 md:-bottom-8 left-1/2 transform -translate-x-1/2 flex gap-1 sm:gap-1.5 md:gap-2 z-20">
+            <div class="absolute -bottom-6 sm:-bottom-6 md:-bottom-8 left-1/2 transform -translate-x-1/2 flex gap-1.5 sm:gap-1.5 md:gap-2 z-20">
               <button 
                 v-for="index in totalSlides" 
                 :key="index"
@@ -307,8 +364,8 @@
                 class="rounded-full transition-all duration-300"
                 :class="[
                   currentSlide === index - 1 
-                    ? 'w-4 sm:w-5 md:w-6 lg:w-8 h-1 sm:h-1.5 md:h-2 bg-orange-500' 
-                    : 'w-1 sm:w-1.5 md:w-2 h-1 sm:h-1.5 md:h-2 bg-gray-400 hover:bg-orange-400',
+                    ? 'w-5 sm:w-5 md:w-6 lg:w-8 h-1.5 sm:h-1.5 md:h-2 bg-orange-500' 
+                    : 'w-1.5 sm:w-1.5 md:w-2 h-1.5 sm:h-1.5 md:h-2 bg-gray-400 hover:bg-orange-400',
                   'md:rounded-full'
                 ]"
               ></button>
@@ -521,7 +578,8 @@ export default {
       currentSlide: 0,
       sliderInterval: null,
       totalSlides: 4,
-      isTransitioning: false
+      isTransitioning: false,
+      expandedSlide: null // Nouvelle propriété pour gérer l'expansion des slides
     }
   },
   computed: {
@@ -595,10 +653,20 @@ export default {
         document.body.style.touchAction = '';
       }
     },
+    // Nouvelle méthode pour gérer l'expansion des slides
+    toggleExpandSlide(index) {
+      if (this.expandedSlide === index) {
+        this.expandedSlide = null; // Rétrécir si déjà agrandi
+      } else {
+        this.expandedSlide = index; // Agrandir le slide cliqué
+        this.pauseSlider(); // Mettre en pause le slider automatique
+      }
+    },
     nextSlide() {
       if (this.isTransitioning) return;
       this.isTransitioning = true;
       this.currentSlide = (this.currentSlide + 1) % this.totalSlides;
+      this.expandedSlide = null; // Réinitialiser l'expansion lors du changement de slide
       setTimeout(() => {
         this.isTransitioning = false;
       }, 500);
@@ -607,6 +675,7 @@ export default {
       if (this.isTransitioning) return;
       this.isTransitioning = true;
       this.currentSlide = (this.currentSlide - 1 + this.totalSlides) % this.totalSlides;
+      this.expandedSlide = null; // Réinitialiser l'expansion lors du changement de slide
       setTimeout(() => {
         this.isTransitioning = false;
       }, 500);
@@ -615,6 +684,7 @@ export default {
       if (this.isTransitioning || index === this.currentSlide) return;
       this.isTransitioning = true;
       this.currentSlide = index;
+      this.expandedSlide = null; // Réinitialiser l'expansion lors du changement de slide
       setTimeout(() => {
         this.isTransitioning = false;
       }, 500);
@@ -622,7 +692,7 @@ export default {
     startSlider() {
       if (this.sliderInterval) return;
       this.sliderInterval = setInterval(() => {
-        if (!this.isTransitioning) {
+        if (!this.isTransitioning && this.expandedSlide === null) { // Ne changer que si aucun slide n'est agrandi
           this.nextSlide();
         }
       }, 5000);
@@ -634,7 +704,7 @@ export default {
       }
     },
     resumeSlider() {
-      if (!this.sliderInterval) {
+      if (!this.sliderInterval && this.expandedSlide === null) { // Ne reprendre que si aucun slide n'est agrandi
         this.startSlider();
       }
     },
@@ -923,85 +993,98 @@ export default {
   50% { transform: translateX(-50%) scale(1.05); opacity: 0.9; }
 }
 
- 
+/* Optimisations supplémentaires pour mobile */
 @media (max-width: 640px) {
   .min-h-\[calc\(100vh-80px\)\] {
     min-height: calc(100vh - 70px);
-    padding-top: 0.5rem;
-    padding-bottom: 1rem;
+    display: flex;
+    align-items: center;
   }
   
-  h1 {
-    font-size: 1.75rem;
-    line-height: 1.2;
-    letter-spacing: -0.02em;
+  /* Ajustement de l'espacement vertical */
+  .gap-4 {
+    gap: 0.75rem;
   }
   
-  .bg-black\/50 {
-    background: rgba(0, 0, 0, 0.65);
+  /* Amélioration de la hauteur de l'image sur mobile */
+  .h-\[260px\] {
+    height: 280px;
   }
   
-  button {
-    min-height: 40px;
-    -webkit-tap-highlight-color: transparent;
+  /* Meilleur espacement pour le contenu textuel */
+  .space-y-3 {
+    margin-top: 0.5rem;
   }
   
-  .line-clamp-1 {
-    display: -webkit-box;
-    -webkit-line-clamp: 1;
-    -webkit-box-orient: vertical;
-    overflow: hidden;
+  /* Ajustement des paddings pour les boutons */
+  .px-4.py-3 {
+    padding: 0.75rem 1rem;
+    font-size: 0.875rem;
   }
   
-  .line-clamp-2 {
-    display: -webkit-box;
-    -webkit-line-clamp: 2;
-    -webkit-box-orient: vertical;
-    overflow: hidden;
+  /* Optimisation du contenu overlay sur l'image */
+  .absolute.bottom-0.left-0.right-0.p-4 {
+    padding: 1rem;
+    background: linear-gradient(to top, rgba(0,0,0,0.8) 0%, rgba(0,0,0,0.4) 70%, transparent 100%);
+  }
+  
+  /* Meilleure visibilité des badges sur l'image */
+  .inline-block.px-2.py-1 {
+    font-size: 0.7rem;
+    backdrop-filter: blur(4px);
+  }
+  
+  /* Ajustement des marges pour le compteur de slides */
+  .top-3.right-3 {
+    top: 0.75rem;
+    right: 0.75rem;
+  }
+  
+  /* Meilleur espacement pour les dots de navigation */
+  .-bottom-6 {
+    bottom: -1.5rem;
+  }
+  
+  /* Style pour l'état agrandi sur mobile */
+  .scale-105 {
+    box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.5);
   }
 }
 
+/* Pour les très petits écrans */
 @media (max-width: 360px) {
-  h1 {
-    font-size: 1.5rem;
+  .h-\[260px\] {
+    height: 220px;
   }
   
-  .px-4 {
-    padding-left: 0.75rem;
-    padding-right: 0.75rem;
+  .text-2xl {
+    font-size: 1.4rem;
+  }
+  
+  .p-4 {
+    padding: 0.75rem;
+  }
+}
+
+/* Pour les écrans moyens (tablettes) */
+@media (min-width: 641px) and (max-width: 768px) {
+  .h-\[300px\] {
+    height: 320px;
+  }
+  
+  .grid {
+    gap: 1rem;
+  }
+}
+
+/* Effet de survol pour desktop */
+@media (min-width: 769px) {
+  .cursor-pointer:hover {
+    box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.2), 0 10px 10px -5px rgba(0, 0, 0, 0.1);
   }
 }
 
  
-@media (max-width: 768px) {
-  .fixed.z-50 {
-    z-index: 9999 !important;
-  }
-  
-  button.w-10.h-10 {
-    transition: transform 0.2s ease, box-shadow 0.2s ease;
-  }
-  
-  button.w-10.h-10:active {
-    transform: scale(0.95);
-  }
-  
-  button.w-10.h-10:hover {
-    transform: none;
-  }
-}
- 
-@media (prefers-reduced-motion: reduce) {
-  *,
-  *::before,
-  *::after {
-    animation-duration: 0.01ms !important;
-    animation-iteration-count: 1 !important;
-    transition-duration: 0.01ms !important;
-    scroll-behavior: auto !important;
-  }
-}
-
 button:focus-visible {
   outline: 2px solid #f97316;
   outline-offset: 2px;
